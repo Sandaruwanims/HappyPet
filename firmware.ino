@@ -49,7 +49,7 @@ float remains = 0;
 float calibration_factor = -96650; //-106600 worked for my 40Kg max scale setup 
 
 //flow meter variables
-byte sensorInterrupt = D3;
+byte sensorInterrupt = FMETER;
 float calibrationFactor = 4.5;
 volatile byte pulseCount; 
 
@@ -99,7 +99,7 @@ void handleNotFound() {
     while(ADCaverage > 160){
       ADCaverage = 0;
       for(int x=0; x<100; x++){
-        ADCaverage += analogRead(A0);
+        ADCaverage += analogRead(DISTANCE);
         delay(1);
       }
       ADCaverage = ADCaverage/100;
